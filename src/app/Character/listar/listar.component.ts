@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CharacterResult } from 'src/app/Model/CharacterResult';
+import { Observable } from 'rxjs';
 import { ServiceService } from 'src/app/Service/service.service';
 
 @Component({
@@ -10,15 +10,21 @@ import { ServiceService } from 'src/app/Service/service.service';
 })
 export class ListarComponent implements OnInit {
 
-  characterResults!: CharacterResult[];
   constructor(private service:ServiceService, private router: Router) { }
+  characters?:Observable<any>;
 
   ngOnInit(){
-    this.service.getCharacters()
-    .subscribe(data=>{
-      this.characterResults=data;
-      console.log(this.characterResults);
-    })
+    this.getAllCharacters();
+  }
+
+  getAllCharacters(){
+    this.characters = this.service.getAllCharacters();
+  }
+
+  getCharacter(id:string){
+
+    this.router.navigate(['/detail/',id]);
+
   }
 
 }

@@ -1,1 +1,21 @@
-<p>detail works!</p>
+<div class="text-center">
+        
+    <h1 class="titulo"><img src="../assets/logomarvel.png" width="250" height="80" alt=""> {{title}}: <small>{{character.name}}</small></h1>
+
+</div>
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="{{character.thumbnailPath}}.{{character.thumbnailExtension}}" alt="..." class="img-thumbnail">
+        </div>
+        <div class="col-sm-6">
+
+            <p><strong>CODE: </strong> {{idCharacter}}</p>
+            <p><strong>DESCRIPTION:</strong> {{characterDescription}}</p>
+            
+            <p><strong>MODIFIED: </strong> {{character.modified | date}}</p>
+            <button class="btn btn-warning btn-block" routerLink="/listar">Back</button>
+
+        </div>
+    </div>

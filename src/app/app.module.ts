@@ -8,12 +8,16 @@ import { DetailComponent } from './Character/detail/detail.component';
 import { FormsModule } from '@angular/forms';
 import { ServiceService } from '../app/Service/service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BitacoraComponent } from './Character/bitacora/bitacora.component';
+import { NavbarComponent } from './Global/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListarComponent,
-    DetailComponent
+    DetailComponent,
+    BitacoraComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

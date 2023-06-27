@@ -1,29 +1,25 @@
-<div class="container">
-    <div class="card">
-        <div class="card-header">
-            <h3>Characters</h3>
-        </div>
-        <div class="card-body">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>NOMBRE</th>
-                        <th>DESCRIPCIÓN</th>
-                        <th>ACCIONES</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let character of characterResults" class="text-center">
-                        <td>{{character.id}}</td>
-                        <td>{{character.name}}</td>
-                        <td>{{character.description}}</td>
-                        <td>
-                            <button class="btn btn-warning">Detail</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+
+<div class="text-center">
+        
+    <h1 class="titulo"><img src="../assets/logomarvel.png" width="350" height="150" alt="MarvelLogo">CHARACTERS</h1>
+
 </div>
+
+
+<div class="row row-cols-1 row-cols-md-4">
+    <div class="col mb-4" *ngFor="let character of characters |async">
+      <div class="card h-100 bg-light text-black text-center p-3" >
+        <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" class="card-img-top" alt="{{character.name}}">
+        <div class="card-body">
+            <h4 class="card-title">{{character.name}}</h4>
+            <button (click)="getCharacter(character.id)" class="btn btn-warning btn-block">Details</button>
+        </div>
+      </div>
+    </div>
+</div>    
+
+
+
+
+
+
